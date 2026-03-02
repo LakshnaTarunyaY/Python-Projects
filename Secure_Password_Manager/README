@@ -1,114 +1,140 @@
-# 🔐 Secure Password Manager (CLI + GUI)
 
-This is a simple and secure Password Manager built with Python. It includes both a **Tkinter-based GUI (Graphical User Interface)** and a **CLI (Command Line Interface)** version.
 
----
+# 🔐 Secure Password Manager (Python | CLI + GUI)
 
-## 📌 Features
-
-* ✅ Generate strong, random passwords
-* ✅ Choose what characters to include (lowercase, uppercase, digits, special characters)
-* ✅ Real-time password strength feedback
-* ✅ Save passwords with labels (e.g., Gmail, Netflix)
-* ✅ Encode/Encrypt passwords for security
-* ✅ View saved passwords with automatic decryption
-* ✅ GUI built using Python's `tkinter` library
-* ✅ CLI version with command-line options using `argparse`
+A secure and user-friendly Password Manager built using Python.
+This project provides both a **Graphical User Interface (GUI)** and a **Command Line Interface (CLI)** for generating, encrypting, and managing passwords securely.
 
 ---
 
-## 💡 How It Works
+## 📌 Key Features
 
-### Tkinter GUI
-
-The graphical interface is built using `tkinter`, Python’s standard GUI toolkit. It provides a clean interface for generating, encrypting, and viewing passwords.
-
-### Generate Password
-
-1. Choose the password length.
-2. Select character types using checkboxes.
-3. Hit the **Generate Password** button.
-4. The password is displayed with its strength (Weak, Medium, or Strong).
-5. The password is then **encrypted** and saved to a file.
-
-### View Saved Passwords
-
-1. Click the **View Saved Passwords** button in the GUI.
-2. If the encryption key exists, the program decrypts and displays all saved passwords in a pop-up window.
-3. If the key is missing or corrupted, an error message is shown.
+* ✅ Generate strong and customizable passwords
+* ✅ Select character types (lowercase, uppercase, digits, special characters)
+* ✅ Password strength indicator
+* ✅ Save passwords with custom labels (e.g., Gmail, Netflix, GitHub)
+* ✅ Secure encryption using Fernet
+* ✅ Decrypt and view saved passwords
+* ✅ Tkinter-based GUI application
+* ✅ CLI version with argument-based options
 
 ---
 
-## 🛠️ Technologies Used
+## 💡 Project Overview
 
-| Component | Tool/Library |
-|----------|--------------|
-| Programming Language | Python |
-| GUI Library | Tkinter |
-| Encryption | cryptography (Fernet) |
-| Encoding (CLI version) | base64 |
-| CLI Parser | argparse |
-| Version Control | Git |
+### 🖥 GUI Version (Tkinter)
+
+The graphical interface is developed using Python’s built-in `tkinter` library.
+It provides an intuitive layout to:
+
+* Generate secure passwords
+* Encrypt and store them safely
+* View decrypted saved passwords
+
+The GUI makes the application beginner-friendly and interactive.
 
 ---
 
-## 🗃️ Project Structure
+### 💻 CLI Version
 
-```bash
-Password_Manager/
-├── password_manager_gui.py       # Tkinter-based GUI application
-├── password_manager_cli.py       # CLI-based password generator
-├── view_passwords_cli.py         # View decoded Base64 passwords (CLI)
-├── decrypt_passwords_cli.py      # Decrypt encrypted passwords (CLI)
-├── saved_passwords.txt           # File where encrypted passwords are saved
-├── secret.key                    # File containing Fernet encryption key
-├── README.md
-└── .gitignore
+The command-line version uses `argparse` to allow flexible password generation through flags and parameters.
+
+It supports:
+
+* Custom password length
+* Character type selection
+* Label-based saving
+* Base64 encoding (CLI mode)
+
+---
+
+## 🔐 Security Implementation
+
+This project uses the `cryptography` library with **Fernet symmetric encryption** to securely store passwords.
+
+* A `secret.key` file is generated to encrypt/decrypt passwords.
+* Encrypted passwords are stored in `saved_passwords.txt`.
+* Sensitive files are excluded using `.gitignore`.
+
+> ⚠️ Important: If the `secret.key` file is lost, encrypted passwords cannot be recovered.
+
+---
+
+## 🛠 Technologies Used
+
+| Category        | Tools / Libraries     |
+| --------------- | --------------------- |
+| Language        | Python                |
+| GUI             | Tkinter               |
+| Encryption      | cryptography (Fernet) |
+| Encoding (CLI)  | base64                |
+| CLI Parsing     | argparse              |
+| Version Control | Git & GitHub          |
+
+---
+
+## 🗂 Project Structure
+
+```
+Secure_Password_Manager/
+│
+├── cli/
+│   ├── decrypt_passwords_cli.py
+│   ├── password_manager_cli.py
+│   └── view_passwords_cli.py
+│
+├── gui/
+│   ├── icons8-password-book-24.png
+│   ├── password_manager_gui.py
+│   ├── saved_passwords.txt
+│   └── secret.key
+│
+├── .gitignore
+└── README.md
+## ⚙️ Setup & Installation
+
+### 1️⃣ Clone the Repository
+
+```
+git clone https://github.com/Your-Username/Secure_Password_Manager.git
+```
+
+### 2️⃣ Install Required Dependency
+
+```
+pip install cryptography
+```
+
+### 3️⃣ Run GUI Version
+
+```
+python password_manager_gui.py
+```
+
+### 4️⃣ Run CLI Version (Example)
+
+```
+python password_manager_cli.py --length 12 --label Gmail --lower --upper --digits --specials
 ```
 
 ---
 
-## ⚠️ Security Note
+## 🎯 Learning Outcomes
 
-This project uses **Fernet encryption** to protect your saved passwords.
+This project demonstrates:
 
-Files like `secret.key` and `saved_passwords.txt` are excluded from version control using `.gitignore`.
-
-> Do not share your `secret.key` with anyone. If you lose it, saved passwords cannot be decrypted.
-
----
-
-## 🧠 Ideal For
-
-- Python beginners learning `tkinter`
-- Students building secure Python projects
-- Learning encryption basics with `cryptography`
-- Practicing Git and GitHub workflow with versioned features
+* Python OOP concepts
+* GUI development using Tkinter
+* Encryption fundamentals
+* File handling
+* CLI argument parsing
+* Secure coding practices
 
 ---
 
-## ⚙️ Setup Instructions
+## 🚀 Future Improvements (Optional Section)
 
-1. Clone the repo  
-   `git clone https://github.com/Your-Username/Secure_Password_Manager.git`
-
-2. Install dependencies  
-   `pip install cryptography`
-
-3. Run GUI  
-   `python password_manager_gui.py`
-
-4. Or use CLI  
-   `python password_manager_cli.py --length 12 --label Gmail --lower --upper --digits --specials`
-
----
-
-## ⭐ GitHub Ready
-
-This project was built using proper Git practices:
-
-* Every feature added on a new branch
-* Meaningful commit messages
-* Clean merge history
-
----
+* Add master password authentication
+* Store data in an encrypted database (SQLite)
+* Add password search functionality
+* Improve UI styling
